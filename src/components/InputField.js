@@ -1,7 +1,7 @@
 import React from "react";
 import "./InputField.css";
 
-export default function CreateInputField() {
+export default function CreateInputField({ doSomething }) {
   return (
     <div>
       <form className="inputForm">
@@ -9,6 +9,7 @@ export default function CreateInputField() {
           type="text"
           placeholder="Getting things done"
           className="inputField"
+          onSubmit={doSomething}
         ></input>
         {/* <label>Ich weiß nicht, was das ist</label> */}
         <button type="submit" className="submitButton">
