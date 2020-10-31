@@ -1,16 +1,16 @@
 import "./App.css";
 import CreateInputField from "./components/InputField";
-import React from "react";
+import React, { useState } from "react";
 
 function App() {
-  function handleSumbit() {
-    alert("submitted");
-    // Versuch, etwas in den localStorage zu speichen
-  }
+  const [toDoArray, setToDoArray] = useState(
+    JSON.parse(localStorage.getItem("ToDos")) || []
+  );
 
   return (
     <div className="App">
-      <CreateInputField doSomething={handleSumbit()} />
+      <CreateInputField setToDoArray={setToDoArray} />
+      <div>{toDoArray}</div>
     </div>
   );
 }
