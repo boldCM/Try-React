@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./InputField.css";
+import updateToDo from "../utils/UpdateToDo";
 
 export default function CreateInputField({ setToDoArray }) {
   const [inputValue, setInputValue] = useState("");
@@ -12,7 +13,10 @@ export default function CreateInputField({ setToDoArray }) {
           event.preventDefault();
           // standardmäßig wird beim submitten die Seite neugeladen
           // daher halten wir das mit preventDefault auf.
-          setToDoArray(inputValue);
+          const newList = updateToDo(inputValue);
+          setInputValue(inputValue);
+          setToDoArray(newList);
+          // hier noch überprüfen mit Schreibweise und was wie übergeben wird:(und natürlich import!)
         }}
       >
         <input
@@ -20,10 +24,12 @@ export default function CreateInputField({ setToDoArray }) {
           placeholder="Getting things done"
           className="inputField"
           //   value={inputValue}
-          onChange={(event) => {
-            setInputValue(event.target.value);
-            console.log(event);
-          }}
+
+          // irgendwas von Benji:
+          // onChange={(event) => {
+          //   setInputValue(event.target.value);
+          //   console.log(event);
+          // }}
 
           //   event ist ein Objekt
           // target ist der Property von dem Objekt
