@@ -13,8 +13,8 @@ export default function CreateInputField({ setToDoArray }) {
           event.preventDefault();
           // standardmäßig wird beim submitten die Seite neugeladen
           // daher halten wir das mit preventDefault auf.
-          const newList = updateToDo(inputValue);
           setInputValue(inputValue);
+          const newList = updateToDo(inputValue);
           setToDoArray(newList);
           // hier noch überprüfen mit Schreibweise und was wie übergeben wird:(und natürlich import!)
         }}
@@ -26,10 +26,10 @@ export default function CreateInputField({ setToDoArray }) {
           //   value={inputValue}
 
           // irgendwas von Benji:
-          // onChange={(event) => {
-          //   setInputValue(event.target.value);
-          //   console.log(event);
-          // }}
+          onChange={(event) => {
+            setInputValue(event.target.value);
+            console.log(event);
+          }}
 
           //   event ist ein Objekt
           // target ist der Property von dem Objekt
